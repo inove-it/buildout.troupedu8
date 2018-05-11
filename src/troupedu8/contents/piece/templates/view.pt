@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone.dexterity">
+<body>
+<metal:main fill-slot="main">
+
+    <h1 class="documentFirstHeading" tal:content="structure here/Heading" />
+    <div tal:define="picture nocall:context/image"
+         class="text-center"
+         tal:condition="nocall:picture">
+         <img tal:define="scales context/@@images"
+              tal:replace="structure python: scales.tag('image', css_class='img-fluid', scale='preview')" />
+    </div>
+    <br>
+    <div class="documentDescription" tal:content="structure python: view.lf_to_p(context.description)" />
+    <div tal:condition="context/text">
+        <h3 tal:content="structure view/widgets/text/label" />
+        <div tal:replace="structure python:context.text.output_relative_to(view.context)"/>
+    </div>
+    <h3>Informations</h3>
+    <label tal:content="structure view/widgets/dates/label" />:
+    <br>
+    <tal:block repeat="date context/dates">
+        <div class="field" tal:content="python:here.toLocalizedTime(date, long_format=1)"/>
+    </tal:block>
+    <label tal:content="structure view/widgets/lieu/label" />:
+    <br>
+    <div class="field">
+        <div tal:repeat="item view/widgets/lieu/related_items">
+            <span tal:define="desc item/Description;
+                              item_url item/getURL|item/absolute_url;">
+                <a href="" class=""
+                tal:attributes="href item_url;
+                                title desc;"
+                tal:content="item/pretty_title_or_id">
+                Related Item
+                </a>
+            </span>
+        </div>
+    </div>
+    <label tal:content="structure view/widgets/directeurs/label" />:
+    <br>
+    <div class="field">
+        <div tal:repeat="item view/widgets/directeurs/related_items">
+            <span tal:define="desc item/Description;
+                              item_url item/getURL|item/absolute_url;">
+                <a href="" class=""
+                tal:attributes="href item_url;
+                                title desc;"
+                tal:content="item/pretty_title_or_id">
+                Related Item
+                </a>
+            </span>
+        </div>
+    </div>
+    <label tal:content="structure view/widgets/abonnement/label" />:
+    <br>
+    <div class="field" tal:content="structure view/widgets/abonnement/render" />
+    <tal:fb condition="view/widgets/facebook_url/value">
+    <div class="text-center">
+        <a target="_blank" tal:attributes="href view/widgets/facebook_url/value"><img class="img-fluid" src="++theme++custom/images/fb-event-FR.png"/></a>
+    </div>
+    </tal:fb>
+</metal:main>
+</body>
+</html>
+

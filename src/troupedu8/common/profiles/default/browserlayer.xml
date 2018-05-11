@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+  <layer name="Troupe"
+         interface="troupedu8.common.interfaces.IBrowserLayer" />
+</layers>

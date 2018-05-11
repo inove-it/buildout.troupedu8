@@ -1,0 +1,11 @@
+{
+  "name": "troupedu8",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-watch": "latest",
+    "request": "~2.75.0"
+  }
+}

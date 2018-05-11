@@ -1,0 +1,20 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:i18n="http://namespaces.zope.org/i18n">
+
+  <permission
+      id="troupedu8.AddDirecteur"
+      title="Add directeur"
+      />
+
+  <browser:page
+      name="view"
+      for=".content.IDirecteur"
+      class=".view.DirecteurView"
+      template="templates/view.pt"
+      permission="zope2.View"
+      layer="troupedu8.common.interfaces.IBrowserLayer"
+      />
+
+</configure>

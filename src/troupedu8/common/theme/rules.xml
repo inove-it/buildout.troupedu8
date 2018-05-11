@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Right column -->
+  <rules css:if-content="#portal-column-two">
+    <replace css:theme="#column2-container">
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
+          <div class="row">
+        <aside id="portal-column-two">
+          <xsl:copy-of css:select="#portal-column-two > *"/>
+        </aside>
+    </div>
+      </div>
+    </replace>
+  </rules>
+
+    <xi:include href="++theme++plonetheme.business_casual/rules.xml" />
+  <drop
+      css:theme='#portal-searchbox'
+      />
+  <drop
+    css:content="#portal-breadcrumbs" />
+  <drop
+    css:content="#subgallery-search" />
+</rules>

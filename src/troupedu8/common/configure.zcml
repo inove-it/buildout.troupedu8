@@ -1,0 +1,24 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:i18n="http://namespaces.zope.org/i18n">
+
+  <plone:static type="theme" name="custom" directory="theme"/>
+
+  <browser:jbot
+    directory="jbot"
+    layer=".interfaces.IBrowserLayer"
+    />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Troupe (common)"
+      description=""
+      directory="profiles/default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler="troupedu8.common.setuphandlers.run_after"
+      />
+
+</configure>

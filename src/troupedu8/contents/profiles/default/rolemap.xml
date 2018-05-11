@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rolemap>
+  <roles>
+    <role name="CA"/>
+    <role name="Photographe"/>
+  </roles>
+
+  <permissions>
+    <permission name="Add directeur" acquire="False">
+      <role name="Manager"/>
+      <role name="Contributor"/>
+      <role name="CA"/>
+    </permission>
+    <permission name="Add lieu" acquire="False">
+      <role name="Manager"/>
+      <role name="Contributor"/>
+      <role name="CA"/>
+    </permission>
+    <permission name="Add piece" acquire="False">
+      <role name="Manager"/>
+      <role name="Contributor"/>
+      <role name="CA"/>
+    </permission>
+  </permissions>
+</rolemap>

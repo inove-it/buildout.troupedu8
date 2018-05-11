@@ -1,0 +1,29 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:i18n="http://namespaces.zope.org/i18n">
+
+  <permission
+      id="troupedu8.AddPiece"
+      title="Add piece"
+      />
+
+  <browser:page
+      name="view"
+      for=".content.IPiece"
+      class=".view.PieceView"
+      template="templates/view.pt"
+      permission="zope2.View"
+      layer="troupedu8.common.interfaces.IBrowserLayer"
+      />
+
+  <browser:page
+      name="piece_view"
+      for="plone.app.contenttypes.interfaces.ICollection"
+      class="plone.app.contenttypes.browser.collection.CollectionView"
+      template="templates/listing.pt"
+      permission="zope2.View"
+      layer="troupedu8.common.interfaces.IBrowserLayer"
+      />
+
+</configure>

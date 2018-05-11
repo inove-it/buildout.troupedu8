@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+ <assignment name="actions" category="context" key="/"
+    manager="plone.footerportlets" type="portlets.Actions" visible="False" />
+ <assignment name="colophon" category="context" key="/"
+    manager="plone.footerportlets" type="portlets.Classic" visible="False" />
+</portlets>

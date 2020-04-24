@@ -40,6 +40,10 @@ class Directeur(Item):
         last = self.lastname
         return first + u" " + last if last else first
 
+    @title.setter
+    def title(self, value):
+        pass
+
     @property
     def pieces(self):
         intids = getUtility(IIntIds)

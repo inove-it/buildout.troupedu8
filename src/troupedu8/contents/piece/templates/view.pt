@@ -60,6 +60,12 @@
     <label tal:content="structure view/widgets/abonnement/label" />:
     <br>
     <div class="field" tal:content="structure view/widgets/abonnement/render" />
+    <div tal:define="galeries python:context.galeries" tal:condition="galeries">
+        <div tal:repeat="g galeries">
+            <h3><a href="${g/absolute_url}">Galerie</a></h3>
+            <tal:gallery tal:replace="structure g/@@placegalleryview" />
+        </div>
+    </div>
     <tal:fb condition="view/widgets/facebook_url/value">
     <div class="text-center">
         <a target="_blank" tal:attributes="href view/widgets/facebook_url/value"><img class="img-fluid" src="++theme++custom/images/fb-event-FR.png"/></a>

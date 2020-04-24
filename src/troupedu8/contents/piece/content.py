@@ -6,8 +6,12 @@ from plone.app.contenttypes.interfaces import IEvent
 from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.namedfile.field import NamedBlobImage
+from troupedu8.contents.galerie.content import IGaleriePiece
 from z3c.relationfield.schema import RelationChoice, RelationList
+from zc.relation.interfaces import ICatalog
+from zope.component import getUtility
 from zope.interface import implements
+from zope.intid.interfaces import IIntIds
 
 
 class RootCatalogSource(CatalogSource):
@@ -97,3 +101,16 @@ class Piece(Event):
     def end(self):
         self.dates.sort()
         return self.dates[-1:][0]
+
+    @property
+    def galeries(self):
+        intids = getUtility(IIntIds)
+        relation_catalog = getUtility(ICatalog)
+        context_intid = intids.getId(self)
+        relations = relation_catalog.findRelations({
+            'to_id': context_intid,
+            'from_interfaces_flattened': IGaleriePiece,
+            'from_attribute': 'piece',
+        })
+        galeries = [r.from_object for r in relations if not r.isBroken()]
+        return [a for a in galeries if api.content.get_state(obj=a) == 'published']

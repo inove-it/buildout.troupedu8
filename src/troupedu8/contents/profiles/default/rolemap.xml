@@ -21,5 +21,10 @@
       <role name="Contributor"/>
       <role name="CA"/>
     </permission>
+    <permission name="Add galerie" acquire="False">
+      <role name="Manager"/>
+      <role name="Contributor"/>
+      <role name="CA"/>
+    </permission>
   </permissions>
 </rolemap>

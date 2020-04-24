@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object name="troupedu8.GaleriePiece" meta_type="Dexterity FTI"
+    i18n:domain="troupedu8" xmlns:i18n="http://namespaces.zope.org/i18n">
+    <property name="title" i18n:translate="">Galerie Pièce</property>
+    <property name="schema">troupedu8.contents.galerie.content.IGaleriePiece</property>
+    <property name="klass">troupedu8.contents.galerie.content.GaleriePiece</property>
+    <property name="behaviors" purge="false">
+        <element value="plone.app.content.interfaces.INameFromTitle"/>
+        <element value="plone.app.dexterity.behaviors.id.IShortName"/>
+    </property>
+    <property name="add_permission">troupedu8.AddGalerie</property>
+    <property name="global_allow">True</property>
+    <property name="filter_content_types">True</property>
+    <property name="allowed_content_types">
+        <element value="Image" />
+    </property>
+
+    <property name="default_view">galleryview</property>
+    <property name="view_methods">
+        <element value="galleryview" />
+    </property>
+</object>

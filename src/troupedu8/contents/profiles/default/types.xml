@@ -3,4 +3,6 @@
     <object meta_type="Dexterity FTI" name="troupedu8.Piece"/>
     <object meta_type="Dexterity FTI" name="troupedu8.Lieu"/>
     <object meta_type="Dexterity FTI" name="troupedu8.Directeur"/>
+    <object meta_type="Dexterity FTI" name="troupedu8.GaleriePiece"/>
+    <object meta_type="Dexterity FTI" name="troupedu8.Galerie"/>
 </object>

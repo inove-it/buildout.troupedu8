@@ -1,0 +1,20 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:i18n="http://namespaces.zope.org/i18n">
+
+  <permission
+      id="troupedu8.AddActeur"
+      title="Add acteur"
+      />
+
+  <browser:page
+      name="view"
+      for=".content.IActeur"
+      class=".view.ActeurView"
+      template="templates/view.pt"
+      permission="zope2.View"
+      layer="troupedu8.common.interfaces.IBrowserLayer"
+      />
+
+</configure>

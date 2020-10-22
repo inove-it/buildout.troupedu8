@@ -6,6 +6,7 @@
 
   <include package=".piece"/>
   <include package=".directeur"/>
+  <include package=".acteur"/>
   <include package=".lieu"/>
   <include package=".galerie"/>
 

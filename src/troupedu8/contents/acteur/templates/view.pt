@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone.dexterity">
+<body>
+<metal:main fill-slot="main">
+
+    <h1 class="documentFirstHeading" tal:content="structure context/Title" />
+    <div tal:define="picture nocall:context/image"
+         class="text-center"
+         tal:condition="nocall:picture">
+         <img tal:define="scales context/@@images"
+              tal:replace="structure python: scales.tag('image', css_class='img-circle img-fluid', scale='preview')" />
+    </div>
+    <br>
+    <div class="documentDescription" tal:content="structure python: view.lf_to_p(context.description)" />
+    <div tal:define="pieces python:context.pieces" tal:condition="pieces">
+        <h3>A joué dans:</h3>
+        <div tal:repeat="p pieces">
+            <h4><a href="${p/absolute_url}">${p/title}</a></h4>
+            <p>${p/description}</p>
+        </div>
+    </div>
+</metal:main>
+</body>
+</html>
+

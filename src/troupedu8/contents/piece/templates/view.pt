@@ -57,6 +57,25 @@
             </span>
         </div>
     </div>
+
+    <tal:acteurs condition="view/widgets/acteurs/value">
+    <label tal:content="structure view/widgets/acteurs/label" />:
+    <br>
+    <div class="field">
+        <div tal:repeat="item view/widgets/acteurs/related_items">
+            <span tal:define="desc item/Description;
+                              item_url item/getURL|item/absolute_url;">
+                <a href="" class=""
+                tal:attributes="href item_url;
+                                title desc;"
+                tal:content="item/pretty_title_or_id">
+                Related Item
+                </a>
+            </span>
+        </div>
+    </div>
+    </tal:acteurs>
+
     <label tal:content="structure view/widgets/abonnement/label" />:
     <br>
     <div class="field" tal:content="structure view/widgets/abonnement/render" />

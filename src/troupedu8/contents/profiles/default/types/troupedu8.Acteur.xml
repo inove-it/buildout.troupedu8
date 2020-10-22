@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object name="troupedu8.Acteur" meta_type="Dexterity FTI"
+    i18n:domain="troupedu8" xmlns:i18n="http://namespaces.zope.org/i18n">
+    <property name="title" i18n:translate="">Acteur</property>
+    <property name="schema">troupedu8.contents.acteur.content.IActeur</property>
+    <property name="klass">troupedu8.contents.acteur.content.Acteur</property>
+    <property name="behaviors">
+        <element value="plone.app.content.interfaces.INameFromTitle"/>
+        <element value="plone.app.dexterity.behaviors.id.IShortName"/>
+        <element value="plone.app.lockingbehavior.behaviors.ILocking" />
+    </property>
+    <property name="add_permission">troupedu8.AddActeur</property>
+    <property name="global_allow">True</property>
+    <property name="filter_content_types">True</property>
+    <property name="allowed_content_types">
+    </property>
+
+</object>

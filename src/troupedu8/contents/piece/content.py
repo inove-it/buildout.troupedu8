@@ -54,6 +54,14 @@ class IPiece(IEvent):
         required=True,
     )
 
+    acteurs = RelationList(
+        title=u"Acteur(s)",
+        value_type=RelationChoice(title=u"Acteur",
+                                  source=RootCatalogSource(portal_type='troupedu8.Acteur', path={'query': 'acteurs'}),
+                                  ),
+        required=False,
+    )
+
     lieu = RelationChoice(
         title=u"Lieu",
         source=RootCatalogSource(portal_type='troupedu8.Lieu', path={'query': 'lieux'}),

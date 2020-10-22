@@ -29,6 +29,21 @@ def run_after(context):
         behavior.setLocallyAllowedTypes(['troupedu8.Directeur'])
         behavior.setImmediatelyAddableTypes(['troupedu8.Directeur'])
         api.content.transition(directors, transition='publish')
+    if not api.content.get('/acteurs'):
+        actors = api.content.create(
+            type='Folder',
+            title='Acteurs',
+            id='acteurs',
+            container=portal)
+        api.group.grant_roles(
+            groupname='AuthenticatedUsers',
+            roles=['Contributor'],
+            obj=actors)
+        behavior = constrains.ISelectableConstrainTypes(actors)
+        behavior.setConstrainTypesMode(constrains.ENABLED)
+        behavior.setLocallyAllowedTypes(['troupedu8.Acteur'])
+        behavior.setImmediatelyAddableTypes(['troupedu8.Acteur'])
+        api.content.transition(actors, transition='publish')
     if not api.content.get('/lieux'):
         lieux = api.content.create(
             type='Folder',

@@ -38,4 +38,12 @@
       handler="troupedu8.common.upgrades.migrate_galerie.migrate"
       profile="troupedu8.common:default" />
 
+  <genericsetup:upgradeStep
+      title="Import acteur"
+      description=""
+      source="1002"
+      destination="1003"
+      handler="troupedu8.common.upgrades.import_acteur.migrate"
+      profile="troupedu8.common:default" />
+
 </configure>

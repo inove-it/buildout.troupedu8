@@ -10,5 +10,5 @@ else
 fi
 
 ${VIRTENV} -p python2.7 .
-./bin/pip install -r https://raw.githubusercontent.com/plone/buildout.coredev/5.1/requirements.txt
+./bin/pip install -r https://dist.plone.org/release/5.1-latest/requirements.txt
 ./bin/buildout "$@"

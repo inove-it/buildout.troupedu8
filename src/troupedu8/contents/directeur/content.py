@@ -54,5 +54,5 @@ class Directeur(Item):
             'from_interfaces_flattened': IPiece,
             'from_attribute': 'directeurs',
         })
-        pieces = [r.from_object for r in relations if not r.isBroken()]
+        pieces = sorted([r.from_object for r in relations if not r.isBroken()], key=lambda piece: piece.start, reverse=True)
         return [a for a in pieces if api.content.get_state(obj=a) == 'published']

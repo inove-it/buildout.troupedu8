@@ -90,6 +90,12 @@ class IPiece(IEvent):
         required=False,
     )
 
+    reservation_url = schema.URI(
+        title=u"Réservation",
+        description=u"URL de la billetterie",
+        required=False,
+    )
+
 
 class Piece(Event):
     implements(IPiece)

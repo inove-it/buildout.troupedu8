@@ -47,6 +47,7 @@
                 item_is_event python:view.is_event(obj);
                 item_has_image python:item.getIcon;
                 item_type_class python:('contenttype-' + view.normalizeString(item_type)) if showicons else '' ;
+                item_reservation_url item/reservation_url;
                 ">
               <metal:block define-slot="entry">
                 <article class="entry">
@@ -126,6 +127,12 @@
                     <div tal:replace="python:here.toLocalizedTime(item, long_format=1)"/>
                     <br>
                   </tal:repeat>
+		  <tal:reservation define="DateTime nocall:modules/DateTime.DateTime; current_time python:DateTime()" condition="python:item_reservation_url and item.end > current_time.asdatetime().replace(tzinfo=None)">
+			  <br>
+			  <div>
+			      <a target="_blank" tal:attributes="href item_reservation_url" class="btn btn-default" role="button">Acheter mes places</a>
+			  </div>
+		  </tal:reservation>
                 </article>
               </metal:block>
             </tal:block>

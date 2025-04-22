@@ -90,6 +90,11 @@
         <a target="_blank" tal:attributes="href view/widgets/facebook_url/value"><img class="img-fluid" src="++theme++custom/images/fb-event-FR.png"/></a>
     </div>
     </tal:fb>
+    <tal:reservation define="DateTime nocall:modules/DateTime.DateTime; current_time python:DateTime()" condition="python:view.widgets['reservation_url'].value and context.end > current_time.asdatetime().replace(tzinfo=None)">
+    <div class="text-center">
+        <a target="_blank" tal:attributes="href view/widgets/reservation_url/value" class="btn btn-default btn-lg" role="button">Acheter mes places</a>
+    </div>
+    </tal:reservation>
 </metal:main>
 </body>
 </html>

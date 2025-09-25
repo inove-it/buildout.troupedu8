@@ -47,6 +47,11 @@ class IGaleriePiece(IFolder):
         required=True,
     )
 
+    description = schema.Text(
+        title=u"Description",
+        required=False,
+    )
+
 
 class GaleriePiece(Folder):
     implements(IGaleriePiece)
